@@ -1,0 +1,55 @@
+{% include 'navbar.html' %}
+
+<head>
+    <style>
+        .page_h1{
+            text-align: center;
+            margin: 3%;
+            color: white;
+        }
+        .parent{
+            padding: 5% 10%;
+            margin-top: 1%;
+            border: 6px solid black;
+            height: 100vh;
+            background-color: red;
+
+        }
+
+        .child{
+            background-color: red;
+            padding: 5% 10%;
+        }
+
+        .page_li{
+            list-style-type: none;
+            color: aliceblue;
+            background-color: brown;
+            border: 1px solid black;
+            padding: 2%;
+            border-radius: 10px;
+            margin: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">
+            <h1 class="page_h1">Responses to {{tweet}}</h1>
+
+            <ul>
+                {% for item in tweet.tweets_set.all %}
+                <li class="page_li">{{item}} --  (@{{item.writer}} )</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+
+
+
+
